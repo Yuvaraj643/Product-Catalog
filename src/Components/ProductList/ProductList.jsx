@@ -9,12 +9,12 @@ const ProductList = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const carouselStyle = {
-    height: '250px',
-    borderRadius: '10px', 
-    overflow: 'hidden', 
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "250px",
+    borderRadius: "10px",
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   const fetchProductData = async () => {
@@ -36,34 +36,37 @@ const ProductList = () => {
     <>
       <div className="main">
         <h1>Explore All Products</h1>
-        <input
-          className="input"
-          type="text"
-          placeholder="Search Product"
-          value={search}
-          onChange={handleChange}
-          
-        />
+        <div class="container">
+          <input
+            className="input"
+            type="text"
+            placeholder="Search Product"
+            value={search}
+            onChange={handleChange}
+          />
+        </div>
         <div class="row row-cols-1 row-cols-md-4 g-4">
           {products &&
             products
-              .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
+              .filter((item) =>
+                item.title.toLowerCase().includes(search.toLowerCase())
+              )
               .map((product) => {
                 return (
                   <div class="col">
                     <div class="card h-100">
-                    <div style={carouselStyle}>
-                      <Carousel>
-                        {product.images.map((image, index) => (
-                          <Carousel.Item key={index}>
-                            <img
-                              className="d-block w-100"
-                              src={image}
-                              alt={`Slide ${index + 1}`}
-                            />
-                          </Carousel.Item>
-                        ))}
-                      </Carousel>
+                      <div style={carouselStyle}>
+                        <Carousel>
+                          {product.images.map((image, index) => (
+                            <Carousel.Item key={index}>
+                              <img
+                                className="d-block w-100"
+                                src={image}
+                                alt={`Slide ${index + 1}`}
+                              />
+                            </Carousel.Item>
+                          ))}
+                        </Carousel>
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">{product.title}</h5>
@@ -74,7 +77,7 @@ const ProductList = () => {
                         </button>
                         <p class="card-text">{product.description}</p>
                         <a href="#" class="btn btn-primary">
-                            ₹{product.price}
+                          ₹{product.price}
                         </a>
                       </div>
                     </div>

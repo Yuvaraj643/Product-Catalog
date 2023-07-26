@@ -9,13 +9,25 @@ h1{
 }
 
 
-.input{
-    margin: 25px 0px 25px 32%;
-    width: 500px;
-    height: 45px;
-    border-radius: 15px;
-    padding-left: 15px;
-}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+  }
+  
+  .input {
+    width: 80%; 
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .input::placeholder {
+    color: #999;
+  }
 .row{
     padding :20px;
     width: 100%;
